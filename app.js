@@ -5,4 +5,5 @@
 const tools = [
     {name: 'teeth', generate:5, price:0},
     {name: 'rusty scissor', generate:5, price:5}
+    {name: 'lawnmower', price:25 }
 ]
