@@ -14,15 +14,33 @@ const tools = [
 const player = {
     tool: 0, // index of the tools array, player starts with the first basic tool
     money: 0, // initially the player has $0
-    winStatus: False // at the start of the game player has not won the game
+    winStatus: false // at the start of the game player has not won the game
 }
 
+function cutLawn()
+{   
+    // current tool used to cut lawn
+    const tool = tools[player.tool]
+    
+    // money earned by cutting lawn
+    player.money += tool.generate
+
+    alert(`You earned ${tool.generate} by cutting the lawn with ${tool.name}`)
+}
+
+
+// winning scenario
 function winCondition()
 {  // win the game when you have a team of starving students and $1000
-    if ((player.tool === 'team') && (player.money >= 1000))
-    {
+    if ((player.tool === 'team') && (player.money >= 10))
+    {   
+        player.winStatus = true
         // send a message to the user telling them, they've won
         alert("Congrats! You have won!")
     }
 }
+
+alert("Welcome to Landscape")
+
+
 
