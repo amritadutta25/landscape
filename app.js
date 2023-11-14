@@ -30,7 +30,7 @@ function cutLawn()
 
 function upgradeTool()
 {
-    if (player.tool < tools.length) // check if player has tools to upgrade to
+    if (player.tool + 1 < tools.length) // check if player has tools to upgrade to
     {   
         const nextTool = tools[player.tool + 1]
 
@@ -54,7 +54,7 @@ function upgradeTool()
 // winning scenario
 function winCondition()
 {  // win the game when you have a team of starving students and $1000
-    if ((player.tool === 'team') && (player.money >= 10))
+    if ((player.tool === tools.length - 1) && (player.money >= 1000))
     {   
         player.winStatus = true
         // send a message to the user telling them, they've won
@@ -78,6 +78,10 @@ while (player.winStatus === false)
     if (response === 'u')
     {
         upgradeTool()
+    }
+    if (response !== 'u' || response !=='c')
+    {
+        alert("Invalid reponse, please enter c/u")
     }
     winCondition() // check if player has won the game
 
