@@ -25,7 +25,7 @@ function cutLawn()
     // money earned by cutting lawn
     player.money += tool.generate
 
-    alert(`You earned ${tool.generate} by cutting the lawn with ${tool.name}`)
+    alert(`You earned $${tool.generate} by cutting the lawn with ${tool.name}.`)
 }
 
 function upgradeTool()
@@ -68,7 +68,7 @@ while (player.winStatus === false)
 {   
     const currentAmount = player.money
     const currentToolIndex = player.tool
-    const response = prompt(`You are currently using ${tools[currentToolIndex].name} and have ${currentAmount}.
+    const response = prompt(`You are currently using ${tools[currentToolIndex].name} and have $${currentAmount}.
     Do you want to [c]ut the lawn or [u]pgrate your tool? Enter c/u:`)
 
     if (response === 'c')
@@ -79,9 +79,9 @@ while (player.winStatus === false)
     {
         upgradeTool()
     }
-    if (response !== 'u' || response !=='c')
+    if (response !== 'u' && response !=='c')
     {
-        alert("Invalid reponse, please enter c/u")
+        alert("Invalid reponse, please enter 'c' or 'u'")
     }
     winCondition() // check if player has won the game
 
