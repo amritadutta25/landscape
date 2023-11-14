@@ -64,5 +64,24 @@ function winCondition()
 
 alert("Welcome to Landscape")
 
+while (player.winStatus === false)
+{   
+    const currentAmount = player.money
+    const currentToolIndex = player.tool
+    const response = prompt(`You are currently using ${tools[currentToolIndex].name} and have ${currentAmount}.
+    Do you want to [c]ut the lawn or [u]pgrate your tool? Enter c/u:`)
+
+    if (response === 'c')
+    {
+        cutLawn()
+    }
+    if (response === 'u')
+    {
+        upgradeTool()
+    }
+    winCondition() // check if player has won the game
+
+}
+
 
 
