@@ -28,6 +28,28 @@ function cutLawn()
     alert(`You earned ${tool.generate} by cutting the lawn with ${tool.name}`)
 }
 
+function upgradeTool()
+{
+    if (player.tool < tools.length) // check if player has tools to upgrade to
+    {   
+        const nextTool = tools[player.tool + 1]
+
+        // check if player has enough money to upgrade
+        if (player.money >= nextTool.price)
+        {
+            player.tool += 1 // upgraded
+            player.money -= nextTool.price // deducting amount after purchase of new tool
+        }
+        else{
+            alert("You don't have enough money to upgrade. Continue cutting lawn to earn money.")
+        }
+    }
+    else // if player has no more tools to upgrade to
+    {
+        alert("You don't have tools to upgrade to.")
+    }
+}
+
 
 // winning scenario
 function winCondition()
